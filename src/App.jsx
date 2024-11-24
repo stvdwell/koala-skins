@@ -102,6 +102,42 @@ const App = () => {
             </div>
           </div>
         </section>
+
+{/* Add this section after the Spotify widget and before the footer */}
+<section 
+  className="max-w-4xl mx-auto text-center mb-12"
+  data-aos="fade-up"
+  data-aos-delay="700"
+>
+  <div className="bg-gray-800 rounded-lg p-8">
+    <h3 className="text-2xl font-bold mb-6">More from stvdwell</h3>
+    
+    <div className="bg-[#111111] rounded-xl p-6 text-left">
+      <h4 className="text-3xl font-bold mb-2">LoFlow</h4>
+      <p className="text-gray-300 text-lg mb-4">Professional low pass filter plugin for perfect transitions</p>
+      <p className="text-gray-400 mb-6">Simple, efficient, and powerful. Create smooth transitions and creative filter effects with precision control.</p>
+      
+      <div className="flex flex-wrap gap-4">
+        <a 
+          href="https://stvdwell.github.io/loflow/" 
+          target="_blank"
+          rel="noopener noreferrer" 
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        >
+          Learn More
+        </a>
+        <a 
+          href="https://stvdwell.github.io/loflow/" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        >
+          Watch Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
       </main>
 
       <footer 
