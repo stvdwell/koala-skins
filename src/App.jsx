@@ -15,12 +15,12 @@ const App = () => {
   }, []);
 
   const skins = [
-    { id: 1, name: 'Ableton Move', image: '/Koala-BG-AbletonMove.png' },
-    { id: 2, name: 'Ambient Clouds', image: '/Koala-BG-AmbientClouds.png' },
-    { id: 3, name: 'Presonus Atom', image: '/Koala-BG-Atom.png' },
-    { id: 4, name: 'Maschine v1', image: '/Koala-BG-Maschine-v1.png' },
-    { id: 5, name: 'Maschine v2', image: '/Koala-BG-Maschine-v2.png' },
-    { id: 6, name: 'Purple Flood', image: '/Koala-BG-PurpleFlood.png' },
+    { id: 1, name: 'Ableton Move', image: '/Koala BG - AbletonMove.png' },
+    { id: 2, name: 'Ambient Clouds', image: '/Koala BG - Ambient Clouds.png' },
+    { id: 3, name: 'Presonus Atom', image: '/Koala BG - Atom.png' },
+    { id: 4, name: 'Maschine v1', image: '/Koala BG - Maschine v1.png' },
+    { id: 5, name: 'Maschine v2', image: '/Koala BG - Maschine v2.png' },
+    { id: 6, name: 'Purple Flood', image: '/Koala BG - Purple Flood.png' },
   ];
 
   return (
@@ -88,7 +88,7 @@ const App = () => {
           data-aos-delay="600"
         >
           <div className="w-full max-w-md mx-auto">
-            <h3 className="text-2xl font-bold mb-6">Listen to stvdwell</h3>
+            <h3 className="text-2xl font-bold mb-6">Support my music here</h3>
             <div className="relative overflow-hidden" style={{ paddingTop: '152px' }}>
               <iframe 
                 className="absolute top-0 left-0 w-full h-full"
@@ -103,24 +103,6 @@ const App = () => {
           </div>
         </section>
       </main>
-
-           {/* Add this section before the footer */}
-      <section className="max-w-4xl mx-auto text-center mb-12">
-        <div className="w-full max-w-md mx-auto">
-          <h3 className="text-2xl font-bold mb-6">Support my music here</h3>
-          <div className="relative overflow-hidden" style={{ paddingTop: '152px' }}>
-            <iframe 
-              className="absolute top-0 left-0 w-full h-full"
-              style={{ borderRadius: '12px' }}
-              src="https://open.spotify.com/embed/artist/5AKW9BjCoI18UhnxIh3H7d?utm_source=generator"
-              frameBorder="0"
-              allowFullScreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
 
       <footer 
         className="max-w-4xl mx-auto text-center text-gray-400 mt-12"
