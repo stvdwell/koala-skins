@@ -1,8 +1,36 @@
-import React, { useEffect } from 'react';
-import { AlertTriangle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { AlertTriangle, X } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
 
+// Add the ImageModal component at the top
+const ImageModal = ({ isOpen, image, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+      data-aos="fade"
+    >
+      <button 
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white hover:text-gray-300"
+      >
+        <X size={32} />
+      </button>
+      <img
+        src={image}
+        alt="Preview"
+        className="max-h-[90vh] max-w-[90vw] object-contain"
+        onClick={e => e.stopPropagation()}
+      />
+    </div>
+  );
+};
+
 const App = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   useEffect(() => {
     // Initialize AOS
     if (typeof AOS !== 'undefined') {
@@ -15,12 +43,42 @@ const App = () => {
   }, []);
 
   const skins = [
-    { id: 1, name: 'Ableton Move', image: '/Koala BG - AbletonMove.png' },
-    { id: 2, name: 'Ambient Clouds', image: '/Koala BG - Ambient Clouds.png' },
-    { id: 3, name: 'Presonus Atom', image: '/Koala BG - Atom.png' },
-    { id: 4, name: 'Maschine v1', image: '/Koala BG - Maschine v1.png' },
-    { id: 5, name: 'Maschine v2', image: '/Koala BG - Maschine v2.png' },
-    { id: 6, name: 'Purple Flood', image: '/Koala BG - Purple Flood.png' },
+    { 
+      id: 1, 
+      name: 'Ableton Move', 
+      downloadImage: '/Koala BG - AbletonMove.png',
+      previewImage: '/examples/Ableton-Move-Example.png'
+    },
+    { 
+      id: 2, 
+      name: 'Ambient Clouds', 
+      downloadImage: '/Koala BG - Ambient Clouds.png',
+      previewImage: '/examples/Ambient-Clouds-Example.png'
+    },
+    { 
+      id: 3, 
+      name: 'Presonus Atom', 
+      downloadImage: '/Koala BG - Atom.png',
+      previewImage: '/examples/Atom-Example.png'
+    },
+    { 
+      id: 4, 
+      name: 'Maschine v1', 
+      downloadImage: '/Koala BG - Maschine v1.png',
+      previewImage: '/examples/Maschine-v1-Example.png'
+    },
+    { 
+      id: 5, 
+      name: 'Maschine v2', 
+      downloadImage: '/Koala BG - Maschine v2.png',
+      previewImage: '/examples/Maschine-v2-Example.png'
+    },
+    { 
+      id: 6, 
+      name: 'Purple Flood', 
+      downloadImage: '/Koala BG - Purple Flood.png',
+      previewImage: '/examples/Purple-Flood-Example.png'
+    },
   ];
 
   return (
@@ -53,13 +111,21 @@ const App = () => {
               data-aos-delay={200 + (index * 100)}
             >
               <img
-                src={skin.image}
+                src={skin.downloadImage}
                 alt={skin.name}
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{skin.name}</h3>
-                <p className="text-gray-400 mb-4">Right-click and save image to download</p>
+                <div className="flex flex-col gap-3">
+                  <p className="text-gray-400">Right-click and save image to download</p>
+                  <button
+                    onClick={() => setSelectedImage(skin.previewImage)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    See Example
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -103,41 +169,40 @@ const App = () => {
           </div>
         </section>
 
-{/* Add this section after the Spotify widget and before the footer */}
-<section 
-  className="max-w-4xl mx-auto text-center mb-12"
-  data-aos="fade-up"
-  data-aos-delay="700"
->
-  <div className="bg-gray-800 rounded-lg p-8">
-    <h3 className="text-2xl font-bold mb-6">More from stvdwell</h3>
-    
-    <div className="bg-[#111111] rounded-xl p-6 text-left">
-      <h4 className="text-3xl font-bold mb-2">LoFlow</h4>
-      <p className="text-gray-300 text-lg mb-4">Professional low pass filter plugin for perfect transitions</p>
-      <p className="text-gray-400 mb-6">Simple, efficient, and powerful. Create smooth transitions and creative filter effects with precision control.</p>
-      
-      <div className="flex flex-wrap gap-4">
-        <a 
-          href="https://stvdwell.github.io/loflow/" 
-          target="_blank"
-          rel="noopener noreferrer" 
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        <section 
+          className="max-w-4xl mx-auto text-center mb-12"
+          data-aos="fade-up"
+          data-aos-delay="700"
         >
-          Learn More
-        </a>
-        <a 
-          href="https://stvdwell.github.io/loflow/" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
-        >
-          Watch Demo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="bg-gray-800 rounded-lg p-8">
+            <h3 className="text-2xl font-bold mb-6">More from stvdwell</h3>
+            
+            <div className="bg-[#111111] rounded-xl p-6 text-left">
+              <h4 className="text-3xl font-bold mb-2">LoFlow</h4>
+              <p className="text-gray-300 text-lg mb-4">Professional low pass filter plugin for perfect transitions</p>
+              <p className="text-gray-400 mb-6">Simple, efficient, and powerful. Create smooth transitions and creative filter effects with precision control.</p>
+              
+              <div className="flex flex-wrap gap-4">
+                <a 
+                  href="https://stvdwell.github.io/loflow/" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+                >
+                  Learn More
+                </a>
+                <a 
+                  href="https://stvdwell.github.io/loflow/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+                >
+                  Watch Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer 
@@ -147,6 +212,12 @@ const App = () => {
       >
         <p>Share and enjoy! Feel free to modify these skins for your own use.</p>
       </footer>
+
+      <ImageModal 
+        isOpen={!!selectedImage}
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </div>
   );
 };
