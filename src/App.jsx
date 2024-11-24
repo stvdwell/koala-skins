@@ -6,12 +6,12 @@ import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
 
 const App = () => {
   const skins = [
-    { id: 1, name: 'Ableton Move', image: 'public/Koala BG - AbletonMove.png' },
-    { id: 2, name: 'Ambient Clouds', image: 'public/Koala BG - Ambient Clouds.png' },
-    { id: 3, name: 'Presonus Atom', image: 'public/Koala BG - Atom.png' },
-    { id: 4, name: 'Maschine v1', image: 'public/Koala BG - Maschine v1.png' },
-    { id: 5, name: 'Maschine v2', image: 'public/Koala BG - Maschine v2.png' },
-    { id: 6, name: 'Purple Flood', image: 'public/Koala BG - Purple Flood.png' },
+    { id: 1, name: 'Ableton Move', image: '/Koala BG - AbletonMove.png' },
+    { id: 2, name: 'Ambient Clouds', image: '/Koala BG - Ambient Clouds.png' },
+    { id: 3, name: 'Presonus Atom', image: '/Koala BG - Atom.png' },
+    { id: 4, name: 'Maschine v1', image: '/Koala BG - Maschine v1.png' },
+    { id: 5, name: 'Maschine v2', image: '/Koala BG - Maschine v2.png' },
+    { id: 6, name: 'Purple Flood', image: '/Koala BG - Purple Flood.png' },
   ];
 
   return (
