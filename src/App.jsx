@@ -1,0 +1,74 @@
+import React from 'react';
+import { AlertTriangle } from 'lucide-react';
+
+// Update the import path to use relative path instead of @/components
+import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
+
+const App = () => {
+  const skins = [
+    { id: 1, name: 'Classic Blue Matrix', image: '/api/placeholder/400/320' },
+    { id: 2, name: 'Maschine Style Dark', image: '/api/placeholder/400/320' },
+    { id: 3, name: 'ATOM Controller', image: '/api/placeholder/400/320' },
+    { id: 4, name: 'Dark Interface', image: '/api/placeholder/400/320' },
+    { id: 5, name: 'Abstract Geometric', image: '/api/placeholder/400/320' },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-gray-100 p-8">
+      <header className="max-w-4xl mx-auto text-center mb-12">
+        <h1 className="text-4xl font-bold mb-6">Koala Sampler Skins</h1>
+        <p className="text-lg text-gray-300 mb-8">
+          Here is my first set of Koala skins inspired by pretty pictures and popular midi controllers/samplers.
+        </p>
+        
+        <div className="bg-yellow-900/30 border border-yellow-600/50 rounded-lg p-4 mb-8">
+          <div className="flex items-center gap-2 mb-2">
+            <AlertTriangle className="text-yellow-500" size={24} />
+            <h2 className="text-lg font-semibold text-yellow-500">Compatibility Note</h2>
+          </div>
+          <p className="text-yellow-200/90">
+            These skins were made on a 4th generation iPad Air, so will fit 10.9" screens only (though you could try on an 11" as well, why not?).
+            They only work in portrait orientation not landscape as they mimic the 4 x 4 pad layout of many popular samplers.
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {skins.map((skin) => (
+            <div key={skin.id} className="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition-colors">
+              <img
+                src={skin.image}
+                alt={skin.name}
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{skin.name}</h3>
+                <p className="text-gray-400 mb-4">Right-click and save image to download</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <section className="bg-gray-800 rounded-lg p-6 mb-12">
+          <h2 className="text-2xl font-bold mb-4">Installation Instructions</h2>
+          <p className="text-gray-300">
+            To install these skins:
+          </p>
+          <ol className="list-decimal list-inside mt-4 space-y-2 text-gray-300">
+            <li>Open Koala Sampler on your iPad</li>
+            <li>Go to Settings</li>
+            <li>Under the "Extras" tab, choose "Background"</li>
+            <li>Locate and select your downloaded .png file</li>
+          </ol>
+        </section>
+      </main>
+
+      <footer className="max-w-4xl mx-auto text-center text-gray-400 mt-12">
+        <p>Share and enjoy! Feel free to modify these skins for your own use.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
