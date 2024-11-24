@@ -68,7 +68,7 @@ const App = () => {
      {/* Add this section before the footer */}
       <section className="max-w-4xl mx-auto text-center mb-12">
         <div className="w-full max-w-md mx-auto">
-          <h3 className="text-2xl font-bold mb-6">Listen to stvdwell</h3>
+          <h3 className="text-2xl font-bold mb-6">Support my music here</h3>
           <div className="relative overflow-hidden" style={{ paddingTop: '152px' }}>
             <iframe 
               className="absolute top-0 left-0 w-full h-full"
