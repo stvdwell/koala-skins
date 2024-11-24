@@ -6,11 +6,12 @@ import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
 
 const App = () => {
   const skins = [
-    { id: 1, name: 'Classic Blue Matrix', image: '/api/placeholder/400/320' },
-    { id: 2, name: 'Maschine Style Dark', image: '/api/placeholder/400/320' },
-    { id: 3, name: 'ATOM Controller', image: '/api/placeholder/400/320' },
-    { id: 4, name: 'Dark Interface', image: '/api/placeholder/400/320' },
-    { id: 5, name: 'Abstract Geometric', image: '/api/placeholder/400/320' },
+    { id: 1, name: 'Ableton Move', image: 'public/Koala BG - AbletonMove.png' },
+    { id: 2, name: 'Ambient Clouds', image: 'public/Koala BG - Ambient Clouds.png' },
+    { id: 3, name: 'Presonus Atom', image: 'public/Koala BG - Atom.png' },
+    { id: 4, name: 'Maschine v1', image: 'public/Koala BG - Maschine v1.png' },
+    { id: 5, name: 'Maschine v2', image: 'public/Koala BG - Maschine v2.png' },
+    { id: 6, name: 'Purple Flood', image: 'public/Koala BG - Purple Flood.png' },
   ];
 
   return (
